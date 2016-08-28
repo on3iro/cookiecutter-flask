@@ -1,0 +1,41 @@
+{% raw %}
+{% extends '__base.html' %}
+
+{% block page_title %}
+{% endraw %}
+{{cookiecutter.project_name}} - Registration
+{% raw %}
+{% endblock %}
+
+{% block content %}
+<div class="signup-container">
+    <h1>Please Register</h1>
+    <form id="registerForm" action="{{ url_for('users.register') }}" method="POST">
+        {{ form.csrf_token }}
+        <div>
+            <p>
+                {{ form.username.label }}
+                {{ form.username(placeholder="username") }}
+            </p>
+            <p>
+                {{ form.email.label }}
+                {{ form.email(placeholder="email") }}
+            </p>
+            <p>
+                {{ form.password.label }}
+                {{ form.password(placeholder="password") }}
+            </p>
+            <p>
+                {{ form.confirm.label }}
+                {{ form.confirm(placeholder="confirm password") }}
+            </p>
+        </div>
+        <p><input type="submit" value="Register"></p>
+		<p>
+            <em>Already registered?</em>
+            <a href="{{ url_for('users.login') }}">Login here!</a>
+		</p>
+    </form>
+</div>
+{% endblock %}
+{% endraw %}

@@ -1,0 +1,39 @@
+{% raw %}
+{% extends 'admin/master.html' %} 
+
+{% block body %}
+    <div class="row-fluid">
+
+        <div>
+            {% if current_user.is_authenticated %}
+{% endraw %}
+            <h1>{{cookiecutter.project_name}}-Admin</h1>
+{% raw %}
+            <p class="lead">
+                Authentication
+            </p>
+            <p>This example shows how you can use Flask-Login for
+                authentication. It is only intendet as a basic demonstration</p>
+            {% else %}
+            <form method="POST" action="">
+                {{ form.hidden_tag() if form.hidden_tag  }}
+                {% for f in form if f.type != 'CSRFTokenField' %}
+                <div>
+                    {{ f.label }}
+                    {{ f }}
+                    {% if f.errors %}
+                    <ul>
+                        {% for e in f.errors %}
+                        <li>{{ e }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <button class="btn" type="submit">Submit</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% endraw %}

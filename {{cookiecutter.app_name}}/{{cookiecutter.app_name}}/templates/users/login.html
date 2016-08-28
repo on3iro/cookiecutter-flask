@@ -1,0 +1,37 @@
+{% raw %}
+{% extends '__base.html' %}
+
+{% block page_title %}
+{% endraw %}
+{{cookiecutter.project_name}} - Login
+{% raw %}
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h3>Please sign in!</h3>
+
+    <form id="loginForm" class="form-signin" role="form" action="{{ url_for('users.login') }}"
+                                          method="post">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            <p>
+                {{ form.username.label }}
+                {{ form.username(placeholder="username", class="form-control") }}
+            </p>
+            <p>
+                {{ form.password.label }}
+                {{ form.password(placeholder="password", class="form-control") }}
+            </p>
+            <button class="btn btn-default" type="submit">Submit</button>
+            <br>
+            <p>
+                <em>Need an account?</em>
+                <a href="{{ url_for('users.register') }}">Signup!</a>
+            </p>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% endraw %}
