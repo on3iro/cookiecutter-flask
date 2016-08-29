@@ -1,7 +1,7 @@
 {
-    "full_name": "Theo Salzmann",
-    "email": "theo.salzmann@on3iro.de",
-    "github_username": "on3iro",
+    "full_name": "Sir Example",
+    "email": "example@example.com",
+    "github_username": "sirexample",
     "project_name": "My flask app",
     "app_name": "myflaskapp",
     "project_short_description": "A simple flask app."
