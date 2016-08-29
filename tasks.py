@@ -21,12 +21,14 @@ REQUIREMENTS = os.path.join(COOKIE, 'requirements.txt')
 @task
 def build():
     """Build app from cookiecutter"""
+    print('Building app...')
     run('cookiecutter {0} --no-input'.format(CURRENT_DIR))
 
 
 @task
 def clean():
     """Clean up generated cookiecutter app."""
+    print('Removing {0}'.format(COOKIE))
     if os.path.exists(COOKIE):
         shutil.rmtree(COOKIE)
         print('Removed {0}'.format(COOKIE))
@@ -35,13 +37,15 @@ def clean():
 
 
 def _run_manage_command(command):
+    print('Running command "{0}"'.format(command))
     run('python {0} {1}'
         .format(os.path.join(COOKIE, 'manage.py'), command), echo=True)
 
 
-@task(pre=[clean, build])
+@task(pre=[build], post=[clean])
 def test():
     """Run tests."""
+    print('Initializing tests...')
     run('pip install -r {0} --ignore-installed'
         .format(REQUIREMENTS), echo=True)
     os.chdir(COOKIE)
