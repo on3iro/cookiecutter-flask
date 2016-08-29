@@ -7,8 +7,7 @@ from flask_script import Manager, Server, Shell
 from flask_migrate import Migrate, MigrateCommand
 from flask_script.commands import Clean, ShowUrls
 
-from {{cookiecutter.app_name}}.app import create_app
-from {{cookiecutter.app_name}}.database import db
+from {{cookiecutter.app_name}}.app import create_app from {{cookiecutter.app_name}}.database import db
 from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
 from {{cookiecutter.app_name}}.users.models import User
 
@@ -39,7 +38,7 @@ def test():
 @manager.command
 def create_admin():
     """Create a default admin user to get access to the admin panel."""
-	if not db.session.query(User).filter(User.username == 'admin'):
+    if not db.session.query(User).filter(User.username == 'admin'):
         admin = User.create(username='admin', email="admin@example.com",
                             is_admin=True, active=True)
         admin.set_password('admin')
