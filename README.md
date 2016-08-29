@@ -4,7 +4,6 @@
 
 This is a simple cookiecutter for flask. It is still a work in progress, but should work fine already. I drew a lot of inspiration from [slorias cookiecutter](https://github.com/sloria/cookiecutter-flask).
 
-Detailed instructions of how to use this cookiecutter will follow...
 
 ## Currently integrated:
 * Password hashing via Flask-Bcrypt
@@ -54,6 +53,7 @@ To quickly generate a secret key you can use open the interactive python shell,
 and type the following commands:
 
 ```>> import os```
+
 ```>> os.urandom(24)```
 
 Then copy the generated key.
