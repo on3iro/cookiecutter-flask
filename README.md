@@ -92,7 +92,7 @@ user, follow these commands:
 
 (This will probably become a manage.py command as well in the future)
 
-#### Migration the database
+#### Migrating the database
 
     ./manage.py migrate
     ./manage.py upgrade
