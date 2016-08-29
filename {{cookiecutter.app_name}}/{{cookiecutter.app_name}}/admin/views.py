@@ -6,6 +6,7 @@ import flask_login as login
 from flask import redirect, url_for, request, abort
 from flask_admin.contrib import sqla
 from flask_admin import helpers, expose
+from wtforms import PasswordField
 from {{cookiecutter.app_name}}.users.forms import AdminLoginForm, get_user
 
 
