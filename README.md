@@ -103,10 +103,15 @@ user, follow these commands:
 For login/logout routes have a look a the respective views.py files.
 
 __localhost:5000__: index view
+
 __localhost:5000/users/__: member page (login required)
+
 __localhost:5000/users/register__: user registration (a newly registered user
 will be inactiv and has to be activated inside the admin panel!)
+
 __localhost:5000/admin/: admin index page (login required, user hast to be an
 admin)
+
 __localhost:5000/admin/user/__: admin panel for user model
+
 __localhost:5000/admin/role/__: admin panel for role model
