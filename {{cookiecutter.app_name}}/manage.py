@@ -7,7 +7,8 @@ from flask_script import Manager, Server, Shell
 from flask_migrate import Migrate, MigrateCommand
 from flask_script.commands import Clean, ShowUrls
 
-from {{cookiecutter.app_name}}.app import create_app from {{cookiecutter.app_name}}.database import db
+from {{cookiecutter.app_name}}.app import create_app 
+from {{cookiecutter.app_name}}.database import db
 from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
 from {{cookiecutter.app_name}}.users.models import User
 
