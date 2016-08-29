@@ -39,8 +39,7 @@ def test():
 @manager.command
 def create_admin():
     """Create a default admin user to get access to the admin panel."""
-    if not (db.session.query(User)
-            .filter(User.username == 'admin')
+    if (db.session.query(User) .filter(User.username == 'admin')
             .first()) is None:
         admin = User.create(username='admin', email="admin@example.com",
                             is_admin=True, active=True)
