@@ -39,10 +39,16 @@ def test():
 @manager.command
 def create_admin():
     """Create a default admin user to get access to the admin panel."""
-    admin = User.create(username='admin', email="admin@example.com",
-                        is_admin=True, active=True) 
-    admin.set_password('admin')
-
+	if not db.session.query(User).filter(User.username == 'admin'):
+        admin = User.create(username='admin', email="admin@example.com",
+                            is_admin=True, active=True)
+        admin.set_password('admin')
+        admin.save()
+    else:
+        print('Admin user already exists. Try to login with: \n',
+              'username: admin \n',
+              'password: admin')
+  
 
 manager.add_command('server', Server())
 manager.add_command('shell', Shell(make_context=_make_context))
