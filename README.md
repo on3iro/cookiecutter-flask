@@ -38,9 +38,9 @@ __Note: cookiecutter-flask is currently only tested under python 3.5!__
     cookiecutter https://github.com/on3iro/cookiecutter-flask.git
 
 ### 3. Preparation
-I advice you to take a few seconds and initialize a git repository inside
-your newly created cookiecutter. Then go on and create a virtualenvironment
-(e.g with pyvenv or virtualenvwrapper). For production use some settings need
+I would recommend to take a few seconds and initialize a git repository inside
+the newly created cookiecutter. Then go on and create a virtualenvironment
+(e.g with pyvenv or virtualenvwrapper). For use in production some settings need
 to be made available to flask (e.g. the secret key). Check those lines which
 are marked with a ```TODO```-command inside **settings.py**. The secret key for
 example can be stored inside an environment variable.
