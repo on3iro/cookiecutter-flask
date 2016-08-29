@@ -46,7 +46,8 @@ def _run_manage_command(command):
 def test():
     """Run tests."""
     print('Initializing tests...')
-    run('pip install -r {0} --ignore-installed'
-        .format(REQUIREMENTS), echo=True)
+    run('pip install -r {0} --ignore-installed'.format(REQUIREMENTS), echo=True)
+    print('Changing into app directory.')
     os.chdir(COOKIE)
+    print('Running tests...')
     _run_manage_command('test')
