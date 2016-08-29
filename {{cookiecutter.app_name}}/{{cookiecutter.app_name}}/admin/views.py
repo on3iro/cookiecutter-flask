@@ -28,15 +28,31 @@ class UserView(MyModelView):
     create_modal = True
     edit_modal = True
 
+    # Remove password field from form
+    form_excluded_columns = ('password')
+
+    # Add dummy password field
+    form_extra_fields = {
+        'password_dummy': PasswordField('Password')
+    }
+
+    # Set the form fields to use
+    form_columns = (
+        'username',
+        'email',
+        'first_name',
+        'last_name',
+        'password_dummy',
+        'created_at',
+        'active',
+        'is_admin'
+    )
+
     def on_model_change(self, form, User, is_created):
-        if form.password.data is not None:
-            User.set_password(form.password.data)
-        else:
-            del form.password
-
-    def on_form_prefill(self, form, id):
-        form.password.data = ''
-
+        # Set password if password_dummy is set
+        if (form.password_dummy.data != ''
+                and form.password_dummy.data is not None):
+            User.set_password(form.password_dummy.data)
 
 # Create customized index view class taht handles login & registration
 class MyAdminIndexView(admin.AdminIndexView):

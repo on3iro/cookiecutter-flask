@@ -35,6 +35,15 @@ def test():
     exit_code = pytest.main([TEST_PATH, '--verbose'])
     return exit_code
 
+
+@manager.command
+def create_admin():
+    """Create a default admin user to get access to the admin panel."""
+    admin = User.create(username='admin', email="admin@example.com",
+                        is_admin=True, active=True) 
+    admin.set_password('admin')
+
+
 manager.add_command('server', Server())
 manager.add_command('shell', Shell(make_context=_make_context))
 manager.add_command('db', MigrateCommand)
