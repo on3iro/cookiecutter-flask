@@ -38,3 +38,7 @@ Flask-DebugToolbar==0.10.0
 
 # Python shell
 bpython==0.15
+
+# Documentation
+sphinx==1.4.6
+sphinx_rtd_theme
