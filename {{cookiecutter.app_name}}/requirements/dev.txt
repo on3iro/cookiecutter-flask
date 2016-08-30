@@ -1,0 +1,14 @@
+# Development packages + production requirements
+
+-r prod.txt
+
+# Testing
+factory-boy==2.7.0
+WebTest==2.0.23
+pytest==2.9.2
+pytest-cov==2.3.1
+pytest-flask==0.10.0
+coverage==4.2
+
+# Package removal
+pip-autoremove==0.9.0

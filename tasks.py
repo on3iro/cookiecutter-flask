@@ -15,7 +15,7 @@ with open(os.path.join(CURRENT_DIR, 'cookiecutter.json'), 'r') as settings:
 
 # Get default value of app_name from cookiecutter.json
 COOKIE = os.path.join(CURRENT_DIR, COOKIECUTTER_SETTINGS['app_name'])
-REQUIREMENTS = os.path.join(COOKIE, 'requirements.txt')
+REQUIREMENTS = os.path.join(COOKIE, 'requirements', 'dev.txt')
 
 
 @task
@@ -46,7 +46,8 @@ def _run_manage_command(command):
 def test():
     """Run tests."""
     print('Initializing tests...')
-    run('pip install -r {0} --ignore-installed'.format(REQUIREMENTS), echo=True)
+    run('pip install -r {0} --ignore-installed'
+        .format(REQUIREMENTS), echo=True)
     print('Changing into app directory.')
     os.chdir(COOKIE)
     print('Running tests...')
