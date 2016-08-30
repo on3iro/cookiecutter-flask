@@ -18,6 +18,7 @@ This is a simple cookiecutter for flask. It is still a work in progress, but sho
 * Formhandling with Flask-WTF
 * psycopg2 for postgre connections
 * simple login and user registration
+* sphinx for documentation
 
 ## Not (yet) integrated
 * Frontend-Framework
@@ -103,6 +104,15 @@ user, follow these commands:
     ./manage.py upgrade
 
 (Note that it is advised to check migrations before upgrading!)
+
+### 7. Create documentation
+Simply cd into the ```doc/```-directory and use these commands:
+
+```sphinx-apidoc -f -o source/ ../<YOUR_APP_DIR>```
+
+```make html```
+
+Now you can simply move into the ```build/html/```-directory and open the index.html file to see your documentation. For further details have a look at the [sphinx documentation](http://www.sphinx-doc.org/en/stable/contents.html)
 
 ### Initial routes
 For login/logout routes have a look a the respective views.py files.
