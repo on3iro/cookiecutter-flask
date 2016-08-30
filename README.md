@@ -64,9 +64,13 @@ Activate your virtualenvironment with:
     
     source <name_of_your_venv>/bin/activate
 
-Now simply install all python dependencies from requirements.txt:
-    
-    pip install -r requirement.txt
+Now you need to either install requirements for production or development:
+
+```pip install -r requirements/prod.txt```
+
+or
+
+```pip install -r requirements/dev.txt```
 
 ### 5. Project initialisation
 To create your database, make an initial migration and create a default admin
